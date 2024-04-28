@@ -10,14 +10,6 @@ end elias_gerster_1_3;
 
 architecture LogicFunction of elias_gerster_1_3 is
 begin
-	process(SW)
-	begin
-		for i in 0 to 4 loop
-			LEDR(i) <= SW(0) or SW(1);
-		end loop;
-		
-		for i in 5 to 9 loop
-			LEDR(i) <= SW(2) or SW(3);
-		end loop;
-	end process;
+	LEDR(4 downto 0) <= "11111" when (SW(0) or SW(1)) = '1' else "00000";
+	LEDR(9 downto 5) <= "11111" when (SW(2) or SW(3)) = '1' else "00000";
 end LogicFunction;
